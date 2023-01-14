@@ -4,11 +4,7 @@ import { ThemeContext } from "styled-components"
 
 import { Container } from './styles'
 
-interface Props {
-  toggleTheme(): void;
-}
-
-export default function Header<Props>({ toggleTheme }) {
+export default function Header({ toggleTheme }) {
   const { colors, title } = useContext(ThemeContext)
 
   return (
