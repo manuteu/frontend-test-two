@@ -1,9 +1,30 @@
-import React from "react"
+import React, { useContext } from "react"
+import Switch from "react-switch"
+import { ThemeContext } from "styled-components"
 
-export default function Header() {
+import { Container } from './styles'
+
+interface Props {
+  toggleTheme(): void;
+}
+
+export default function Header<Props>({ toggleTheme }) {
+  const { colors, title } = useContext(ThemeContext)
+
   return (
-    <div>
-      <h1>Header</h1>
-    </div>
+    <Container>
+      header
+      <Switch
+        onChange={toggleTheme}
+        checked={title === 'dark'}
+        checkedIcon={false}
+        uncheckedIcon={false}
+        height={10}
+        width={40}
+        handleDiameter={30}
+        offColor=""
+        onColor={colors.secondary}
+      />
+    </Container>
   )
 }
